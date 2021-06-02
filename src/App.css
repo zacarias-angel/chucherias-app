@@ -1,38 +1,182 @@
-.App {
-  text-align: center;
+.contenedor-grid{
+  width: 100%;
+  display: grid;
+  grid-template-rows: auto auto auto auto;
+  grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto;
+  grid-gap: 10px;
+  grid-template-areas:" header header header header header header header header header header header header"
+  "banner banner banner banner banner banner banner banner banner banner banner banner"
+  "main main main main main main main main main main main main"
+  "widget widget widget widget widget widget widget widget widget widget widget widget"
+  "footer footer footer footer footer footer footer footer footer footer footer footer"
+  "footer2 footer2 footer2 footer2 footer2 footer2 footer2 footer2 footer2 footer2 footer2 footer2";
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/*------------------------------------------- header-------------------------------------------------------------*/
+.contenedor-grid header{
+  background-color:pink;
+  grid-area:header;
+  width: 100%;
+  height: 130px;
+  position: fixed;
+  width: 100%;
+  top:0;
+  left:0;
+  z-index:1000;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.nav{
+  display: flex;
+  justify-content: space-around;
 }
+.imagen-logo img { 
+  height: 100px;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 20px;
+}
+.menu-drop{
+  display: flex;
+  flex-direction: row;
+  font-size: 20px;
+  padding: 0 20px;
+  margin: 0px 30px;
+}
+.botones-nav{
+display: flex;
+flex-direction: column;
+justify-content: center;
+}
+.botones-nav ul li{
+  list-style: none;
+  border-radius: 15px;
+  list-style: none;
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+
+}
+.botones-nav ul li a{
+  text-decoration: none;
+  color: black;
+  margin:10px 20px;
+}
+.drop-container{
+  display: none; 
+  position: absolute;
+  border-radius: 5px;
+  text-align: initial;
+  transition: 1s;
+  line-height: 4;
+  border: solid 6px;
+  border-top: none;
+  border-color: deeppink;
+   padding: 10px 0; 
+  background-color: pink;
+}
+.drop-container li {
+  margin:0;
+}
+.dropdow:hover > .drop-container{
+  display: block; 
+  position: absolute;
+  border-radius: 5px;
+  text-align: initial;
+  transition: 1s;
+  line-height: 4;
+  border: solid 6px;
+  border-top: none;
+  border-color: deeppink;
+padding: 10px 0; 
+  background-color: pink;
+
+}
+.btn-drop{
+  padding: 10px;
+}  
+
+.botones-nav ul li:hover{
+  background-color: fuchsia;
+  transition: 0,5s;
+}
+.btn-movil{
+  display: flex;
+  justify-content: space-around;
+}
+.btn-carrito-movil{
+  list-style: none;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin: 0 20px;
+}
+.btn-menu{
+  border: none;
+  background-color: transparent;
+  display: none;
+}
+@media screen and (max-width:768px){
+  *{
+      padding: 0;
+  }
+  .btn-menu{
+      border: none;
+      background-color: transparent;
+      display: flex;
+      border: none;
+      justify-content: space-between;
+      margin: auto 40px;
+      font-size: x-large;
+  }
+  .botones-nav{
+      top: 0%;
+      transition:1s;
+      justify-content: flex-start;
+      position: fixed;
+      margin-top: 130px;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      height: 100%;
+      background-color: slategrey;
+      overflow-y: auto;
+}
+.dropdow:hover > .drop-container {
+  display: block;
+  position: relative;
+  border-radius: 5px;
+  text-align: center;
+  transition: 1s;
+  line-height: 4;
+  border: solid 6px;
+  border-top: none;
+  border-color: deeppink;
+  padding: 10px 0;
+  background-color: pink;
+}
+  .botones-nav ul{
+      line-height: 3;
+      list-style: none;
+      flex-direction: column;
+      margin: 0;
+      padding: 0;
+      background-color: slategrey;
+  }
+  .boton-togle{
+      display: block;
+      transition: 1s;
+      top: 100%;
+  }
+  .menu-drop{
+      display:flex;
+      flex-direction: column;
+      margin: 50px;
+      margin: 10px;
+      }
+      .drop-container {
+          position: relative;
+          line-height: 4;
+      }
+  
+
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
