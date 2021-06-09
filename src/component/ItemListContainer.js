@@ -1,4 +1,4 @@
-import Raect from 'react';
+import React from 'react';
 const ItemListContainer = props => {
     
     const {texto} = props;
