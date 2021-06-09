@@ -1,11 +1,11 @@
-import logo from './logo.svg';
+
 import './App.css';
-import NavBar from './component/NavBar.js'
+import ContenedorGrid  from './component/ContenedorGrid.js';
 
 function App() {
   return (
     <div className="App">
-      <NavBar/>
+      <ContenedorGrid />
     </div>
   );
 }
