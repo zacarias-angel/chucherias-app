@@ -1,25 +1,11 @@
 import React,{fragment} from 'react';
-import ItemListContainer from './ItemListContainer.js';
-import NavBar from './NavBar.js'
-const ContenedorGrid = () =>{
+
+const ContenedorGrid = props =>{
+    const {children} = props;
     return (
     <fragment>
         <div className="contenedor-grid">
-        <NavBar/>
-        <div className="banner" >
-        </div>
-        <ItemListContainer texto ="proximante catalogo."/>
-        <div className="widget">
-            
-        </div>
-        <div className="footer">
-        
-        </div>
-        <div className="footer2">
-            
-        
-        </div>
-    
+        {children}
         </div>
     </fragment>
 

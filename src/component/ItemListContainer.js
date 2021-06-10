@@ -5,7 +5,7 @@ const ItemListContainer = props => {
     return(
     <div className=" main">
         <p>
-            {texto}'
+            {texto}
         </p>
 
     </div>
