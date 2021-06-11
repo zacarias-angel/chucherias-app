@@ -1,10 +1,9 @@
-import React,{fragment} from 'react';
+import React from 'react';
 import CardWiget from './CardWiget.js';
 import imgLogo from '../img/logo.png';
 
 function NavBar (){
     return (
-    <fragment>
         <header>
             <div className="nav" >
                 <div className="imagen-logo">
@@ -27,8 +26,6 @@ function NavBar (){
                 <CardWiget/>
             </div>    
         </header>
-    </fragment>
-
     );
 }
 export default NavBar;

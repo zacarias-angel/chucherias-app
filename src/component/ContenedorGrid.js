@@ -1,13 +1,13 @@
-import React,{fragment} from 'react';
+import React from 'react';
 
 const ContenedorGrid = props =>{
     const {children} = props;
     return (
-    <fragment>
+    <>
         <div className="contenedor-grid">
         {children}
         </div>
-    </fragment>
+    </>
 
     )
 }

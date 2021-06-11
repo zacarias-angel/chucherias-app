@@ -189,5 +189,57 @@ padding: 10px 0;
     margin-top: 100px;
     background-color: #e7e7e7;;
 }
+.caja-articulos{
+  justify-content: space-between;
+  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
+  padding: 10px;
+  margin:10px;
+}
+  @media screen and (min-width: 768px){
+      .caja-articulos{
+          justify-content: space-between;
+          flex-wrap: wrap;
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr 1fr;
+          grid-gap: 25px;
+  }
+}
+.articulo-hijo{
+  
+  background-color: white;
+  display: flex;
+  margin: 10px 0px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 250px;
+  box-shadow: 0px 8px 16px 0px rgb(0 0 0 / 60%);
+}
+.tamanio-entablas{
+  width:100px;
+  height:100px;
+}
+.tamano-tarjeta{
+  height: 200px;
+  width: 200px;
+  padding: 10px;
+
+}
+
+.titulo-tarjeta{
+  text-align: center;
+}
+.descripcion{
+  margin: 10px;
+  list-style:none;
+  
+}
+.btn-card{
+  margin:10px;
+  
+}
 
 
