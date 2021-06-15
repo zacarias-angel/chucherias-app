@@ -3,6 +3,12 @@ import React,{useState} from 'react';
  const ItemCount = () => {
      
 const [Numero, setNumero] = useState(0);
+const [Activo, setActivo] = useState(true);
+
+const desactivado =() =>{
+    setActivo(!Activo)
+    
+} 
 
 
 
@@ -13,10 +19,9 @@ const aumentar = () =>{
 const reducir = () =>{
     setNumero(Numero - 1);
     if (Numero < 0){
-    {console.log("es menor que 0")}
+       desactivado()
+   
     }
-
-    
 }
 
 
@@ -28,7 +33,7 @@ const reducir = () =>{
                     <h5 className="titulo-tarjeta"> desafio 2 </h5> <h5 className="titulo-tarjeta"> cantidad del contador: {Numero} </h5>
                     <ul className="descripcion" >
                         <li><button onClick ={aumentar} className="btn-card">sumar</button></li>
-                        <li><button onClick ={reducir} className="btn-card" >restar</button></li>
+                        <li><button onClick ={reducir}  className="btn-card" >restar</button></li>
                         <li><button className="btn-card">agregar al carrito</button></li>
                     </ul>
                     
