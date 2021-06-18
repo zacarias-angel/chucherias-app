@@ -1,7 +1,13 @@
-import React,{useState} from 'react'
+import React,{useState} from 'react';
+import Inoxi from '../img/inoxi.jpg';
+import BarreHojas from '../img/barre-hojas.jpg';
+import Cuadriculada from '../img/cuadriculada.jpg';
+import Dorada from '../img/doradajpg.jpg';
+import Lana from '../img/lana.jpg';
+import Amarillo from '../img/amarillo.jpg';
 
 const data = [ {
-    rutaimagen:"..img/inoxi.jpg",
+    rutaimagen: Inoxi,
     titulo:" esp. acero",
     pack :24,
     bulto :600,
@@ -10,7 +16,7 @@ const data = [ {
     }
     ,
     {
-    rutaimagen:"./img/inoxi.jpg",
+    rutaimagen:Cuadriculada,
     titulo:"esponja",
     pack :12,
     bulto :240,
@@ -19,7 +25,7 @@ const data = [ {
     }
     ,
     {
-    rutaimagen:"img/inoxi.jpg",
+    rutaimagen:Lana,
     titulo:"lana acero",
     pack :12,
     bulto :250,
@@ -28,7 +34,7 @@ const data = [ {
     }    
     ,
     {
-        rutaimagen:"inoxi.jpg",
+        rutaimagen:Dorada,
         titulo:"esp. dorada",
         pack :24,
         bulto :600,
@@ -36,7 +42,7 @@ const data = [ {
         id: 4
     },
     {
-        rutaimagen:"imagenes/limpieza/amarillo.jpg",
+        rutaimagen:Amarillo,
         titulo:"paño amarillo",
         pack :1,
         bulto :250,
@@ -45,7 +51,7 @@ const data = [ {
     }  
     ,
     {
-        rutaimagen:"imagenes/limpieza/barre-hojas.jpg",
+        rutaimagen:BarreHojas,
         titulo:"barre hojas",
         pack :12,
         bulto :12,

@@ -242,4 +242,25 @@ padding: 10px 0;
   
 }
 
+/*--------------------------------------------- main DETAIL  -----------------------------------------------------------*/
 
+
+.contenedorPadre{
+
+  display: flex;
+  justify-content: center;
+
+}
+.contenedorMain{
+  margin-top: 20px;
+display: flex;
+  flex-direction: row;
+  height: 400px;
+  width: 75%;
+  align-items: center;
+  justify-content: center;
+}
+
+.descripcion{
+padding: 10px;
+}
