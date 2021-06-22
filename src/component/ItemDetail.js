@@ -1,7 +1,9 @@
 import React,{useEffect,useState,Fragment} from 'react';
 import Inoxi from '../img/inoxi.jpg';
+import Cuadriculada from '../img/cuadriculada.jpg';
 
-const datadetail = [{ rutaimagen: Inoxi,
+const datadetail = [ {
+    rutaimagen: Inoxi,
     titulo:" esp. acero",
     descripcion:"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat laboriosam provident sapiente quia quidem doloremque veritatis debitis vero reprehenderit incidunt, ratione, voluptatem distinctio eum rem quam culpa voluptate, perspiciatis iusto.",
     pack :24,
@@ -10,14 +12,14 @@ const datadetail = [{ rutaimagen: Inoxi,
     id :2}
     ,
     {
-    rutaimagen: Inoxi,
+    rutaimagen: Cuadriculada,
     titulo:" esp. acero",
     descripcion:"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat laboriosam provident sapiente quia quidem doloremque veritatis debitis vero reprehenderit incidunt, ratione, voluptatem distinctio eum rem quam culpa voluptate, perspiciatis iusto.",
     pack :24,
     bulto :600,
     precio : 16,
     id : 1
-    }];
+    } ];
 
 const promesadetail = () =>{
     return  new Promise((resolve,reject) => {
@@ -33,24 +35,27 @@ const promesadetail = () =>{
 
 
 const ItemDetail = () =>{
-    const [elementodetail , setElementodetail] = useState('');
+    const [Elementodetail,setElementodetail] = useState([]);
 
 
-    useEffect(()=>{
-        promesadetail().then((elementodetail) =>{
-            setElementodetail(elementodetail);
-            console.log(elementodetail);
+   useEffect(()=>{
+        promesadetail().then((Elementodetail) =>{
+            setElementodetail(Elementodetail);
+            console.log(Elementodetail);
         }).catch((erroor)=>{
         console.log("error")
     })
-    },[])
+   },[])
+       
     return(
     
-        <div className="contenedorPadre">
-        {elementodetail.map((datosDtail,id)=><Fragment key={id}>
-        <div className="contenedorMain">
+      
+       <>{Elementodetail.map((datosDtail,id)=><div className="contenedorPadre" key={id}>
+            
+        <div className="contenedorMain">  
+        
 			<div className="tamañoImagen">
-				<img src = {datosDtail[0].rutaimagen} alt=""/>
+				<img src = {datosDtail.rutaimagen} alt=""/>
 			</div>
 			<div className="descripcion">
 				<h1>{datosDtail.titulo}</h1>
@@ -59,11 +64,10 @@ const ItemDetail = () =>{
 				<span className="cantidadProductos"> 0 </span>
 				<button className="btn-comprar">comprar</button>
 			</div>
-			
 		</div>
-        </Fragment>)}
-		
-	</div>
+       </div>
+        )
+    } </>
     )
 }
 
