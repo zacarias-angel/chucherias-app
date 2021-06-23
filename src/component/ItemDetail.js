@@ -45,29 +45,36 @@ const ItemDetail = () =>{
         }).catch((erroor)=>{
         console.log("error")
     })
-   },[])
-       
+},[])
     return(
     
-      
-       <>{Elementodetail.map((datosDtail,id)=><div className="contenedorPadre" key={id}>
+    
+    <>
+    <div className="contenedorPadre" >
+    {Elementodetail === 0 ? (<div className="contenedorMain">  
+                            <h1> cargando....</h1> 
+        </div> )  : (
+        <> {Elementodetail.map((datosDtail,id)=>
             
         <div className="contenedorMain">  
         
-			<div className="tamañoImagen">
-				<img src = {datosDtail.rutaimagen} alt=""/>
-			</div>
-			<div className="descripcion">
-				<h1>{datosDtail.titulo}</h1>
-				<p>{datosDtail.descripcion}</p>
-				<h4>precio: {datosDtail.precio}</h4>
-				<span className="cantidadProductos"> 0 </span>
-				<button className="btn-comprar">comprar</button>
-			</div>
-		</div>
-       </div>
+        <div className="tamañoImagen">
+            <img src = {datosDtail.rutaimagen} alt=""/>
+            </div>
+            <div className="descripcion">
+                <h1>{datosDtail.titulo}</h1>
+                <p>{datosDtail.descripcion}</p>
+                <h4>precio: {datosDtail.precio}</h4>
+                <span className="cantidadProductos"> 0 </span>
+                <button className="btn-comprar">comprar</button>
+            </div>
+        </div>
+        
         )
-    } </>
+    }</>
+    )}
+    </div>
+    </>
     )
 }
 
