@@ -1,10 +1,10 @@
 import React from 'react';
+import Item from './Item.js';
 
 const ItemList = props =>{
-    const {children} = props;
-    return (<>
-        {children}
-        </>
+    
+    return (
+        <Item/>
     )
 }
 export default ItemList;

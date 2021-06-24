@@ -1,4 +1,5 @@
 import React,{useState} from 'react';
+import {Link} from 'react-router-dom';
 import Inoxi from '../img/inoxi.jpg';
 import BarreHojas from '../img/barre-hojas.jpg';
 import Cuadriculada from '../img/cuadriculada.jpg';
@@ -6,13 +7,16 @@ import Dorada from '../img/doradajpg.jpg';
 import Lana from '../img/lana.jpg';
 import Amarillo from '../img/amarillo.jpg';
 
+
 const data = [ {
     rutaimagen: Inoxi,
     titulo:" esp. acero",
     pack :24,
     bulto :600,
+    descripcion:"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat laboriosam provident sapiente quia quidem doloremque veritatis debitis vero reprehenderit incidunt, ratione, voluptatem distinctio eum rem quam culpa voluptate, perspiciatis iusto.",
     precio : 16,
     id : 1
+    
     }
     ,
     {
@@ -20,6 +24,7 @@ const data = [ {
     titulo:"esponja",
     pack :12,
     bulto :240,
+    descripcion:"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat laboriosam provident sapiente quia quidem doloremque veritatis debitis vero reprehenderit incidunt, ratione, voluptatem distinctio eum rem quam culpa voluptate, perspiciatis iusto.",
     precio : 16,
     id : 2
     }
@@ -29,6 +34,7 @@ const data = [ {
     titulo:"lana acero",
     pack :12,
     bulto :250,
+    descripcion:"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat laboriosam provident sapiente quia quidem doloremque veritatis debitis vero reprehenderit incidunt, ratione, voluptatem distinctio eum rem quam culpa voluptate, perspiciatis iusto.",
     precio : 22,
     id: 3
     }    
@@ -38,6 +44,7 @@ const data = [ {
         titulo:"esp. dorada",
         pack :24,
         bulto :600,
+        descripcion:"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat laboriosam provident sapiente quia quidem doloremque veritatis debitis vero reprehenderit incidunt, ratione, voluptatem distinctio eum rem quam culpa voluptate, perspiciatis iusto.",
         precio : 24,
         id: 4
     },
@@ -46,6 +53,7 @@ const data = [ {
         titulo:"paño amarillo",
         pack :1,
         bulto :250,
+        descripcion:"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat laboriosam provident sapiente quia quidem doloremque veritatis debitis vero reprehenderit incidunt, ratione, voluptatem distinctio eum rem quam culpa voluptate, perspiciatis iusto.",
         precio : 15,
         id : 5
     }  
@@ -55,6 +63,7 @@ const data = [ {
         titulo:"barre hojas",
         pack :12,
         bulto :12,
+        descripcion:"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat laboriosam provident sapiente quia quidem doloremque veritatis debitis vero reprehenderit incidunt, ratione, voluptatem distinctio eum rem quam culpa voluptate, perspiciatis iusto.",
         precio : 45,
         id : 6
     }  ]
@@ -73,6 +82,7 @@ const ejeucutarpromesa = ()=>{
 }
 
 
+
 const Item = () => {
        
 console.log("esta esta despues de la promesa")
@@ -87,6 +97,8 @@ console.log("esta esta despues de la promesa")
 
     })
 
+   
+
     return(
         <div id="cajapadre" className="caja-articulos"> 
         {Elemento.map((eLemento, id )=> <React.Fragment key={id}>
@@ -99,7 +111,9 @@ console.log("esta esta despues de la promesa")
                     <li>cantidad bulto {eLemento.bulto}</li>
                     <li>precio {eLemento.precio}</li>
                 </ul>
-                <button id="btncard" className="btn-card">comprar</button>
+                <Link to={`/datalles/${eLemento.id}`}>
+                <button id="btncard "    className="btn-card">ver mas</button>
+                </Link>
             </div>    
         </div>
 

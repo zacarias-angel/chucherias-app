@@ -1,31 +1,79 @@
-import React,{useEffect,useState,Fragment} from 'react';
+import React,{useEffect,useState} from 'react';
 import Inoxi from '../img/inoxi.jpg';
+import BarreHojas from '../img/barre-hojas.jpg';
 import Cuadriculada from '../img/cuadriculada.jpg';
+import Dorada from '../img/doradajpg.jpg';
+import Lana from '../img/lana.jpg';
+import Amarillo from '../img/amarillo.jpg';
+import {useParams} from 'react-router-dom'
 
-const datadetail = [ {
+
+const data = [ {
     rutaimagen: Inoxi,
     titulo:" esp. acero",
-    descripcion:"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat laboriosam provident sapiente quia quidem doloremque veritatis debitis vero reprehenderit incidunt, ratione, voluptatem distinctio eum rem quam culpa voluptate, perspiciatis iusto.",
     pack :24,
     bulto :600,
-    precio : 16,
-    id :2}
-    ,
-    {
-    rutaimagen: Cuadriculada,
-    titulo:" esp. acero",
     descripcion:"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat laboriosam provident sapiente quia quidem doloremque veritatis debitis vero reprehenderit incidunt, ratione, voluptatem distinctio eum rem quam culpa voluptate, perspiciatis iusto.",
-    pack :24,
-    bulto :600,
     precio : 16,
     id : 1
-    } ];
+    
+    }
+    ,
+    {
+    rutaimagen:Cuadriculada,
+    titulo:"esponja",
+    pack :12,
+    bulto :240,
+    descripcion:"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat laboriosam provident sapiente quia quidem doloremque veritatis debitis vero reprehenderit incidunt, ratione, voluptatem distinctio eum rem quam culpa voluptate, perspiciatis iusto.",
+    precio : 16,
+    id : 2
+    }
+    ,
+    {
+    rutaimagen:Lana,
+    titulo:"lana acero",
+    pack :12,
+    bulto :250,
+    descripcion:"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat laboriosam provident sapiente quia quidem doloremque veritatis debitis vero reprehenderit incidunt, ratione, voluptatem distinctio eum rem quam culpa voluptate, perspiciatis iusto.",
+    precio : 22,
+    id: 3
+    }    
+    ,
+    {
+        rutaimagen:Dorada,
+        titulo:"esp. dorada",
+        pack :24,
+        bulto :600,
+        descripcion:"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat laboriosam provident sapiente quia quidem doloremque veritatis debitis vero reprehenderit incidunt, ratione, voluptatem distinctio eum rem quam culpa voluptate, perspiciatis iusto.",
+        precio : 24,
+        id: 4
+    },
+    {
+        rutaimagen:Amarillo,
+        titulo:"paño amarillo",
+        pack :1,
+        bulto :250,
+        descripcion:"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat laboriosam provident sapiente quia quidem doloremque veritatis debitis vero reprehenderit incidunt, ratione, voluptatem distinctio eum rem quam culpa voluptate, perspiciatis iusto.",
+        precio : 15,
+        id : 5
+    }  
+    ,
+    {
+        rutaimagen:BarreHojas,
+        titulo:"barre hojas",
+        pack :12,
+        bulto :12,
+        descripcion:"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat laboriosam provident sapiente quia quidem doloremque veritatis debitis vero reprehenderit incidunt, ratione, voluptatem distinctio eum rem quam culpa voluptate, perspiciatis iusto.",
+        precio : 45,
+        id : 6
+    }  ]
+
 
 const promesadetail = () =>{
     return  new Promise((resolve,reject) => {
         setTimeout(() => {
-            if(datadetail.length>0){
-                resolve(datadetail);
+            if(data.length>0){
+                resolve(data);
             } else{
                 reject("error al obtener los datos ");
             }
@@ -36,9 +84,11 @@ const promesadetail = () =>{
 
 const ItemDetail = () =>{
     const [Elementodetail,setElementodetail] = useState([]);
+    const {id} = (useParams);
+        console.log(id)
+        
 
-
-   useEffect(()=>{
+useEffect(()=>{
         promesadetail().then((Elementodetail) =>{
             setElementodetail(Elementodetail);
             console.log(Elementodetail);
@@ -46,35 +96,23 @@ const ItemDetail = () =>{
         console.log("error")
     })
 },[])
+
+
     return(
-    
-    
-    <>
-    <div className="contenedorPadre" >
-    {Elementodetail === 0 ? (<div className="contenedorMain">  
-                            <h1> cargando....</h1> 
-        </div> )  : (
-        <> {Elementodetail.map((datosDtail,id)=>
-            
         <div className="contenedorMain">  
         
         <div className="tamañoImagen">
-            <img src = {datosDtail.rutaimagen} alt=""/>
-            </div>
+            <img src={"/"} alt=""/> </div>
+        
             <div className="descripcion">
-                <h1>{datosDtail.titulo}</h1>
-                <p>{datosDtail.descripcion}</p>
-                <h4>precio: {datosDtail.precio}</h4>
+                <h1></h1>
+                <p></p>
+                <h4>precio:</h4>
                 <span className="cantidadProductos"> 0 </span>
                 <button className="btn-comprar">comprar</button>
             </div>
         </div>
-        
-        )
-    }</>
-    )}
-    </div>
-    </>
+
     )
 }
 

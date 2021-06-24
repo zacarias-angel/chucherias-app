@@ -1,6 +1,7 @@
 import React from 'react';
 import CardWiget from './CardWiget.js';
 import imgLogo from '../img/logo.png';
+import {Link} from 'react-router-dom'
 
 function NavBar (){
     return (
@@ -12,11 +13,11 @@ function NavBar (){
                 <div className="botones-nav boton-togle" >
                         <ul className="menu-drop">
                             <li> <a href="/"> HOME</a></li>
-                            <li className="dropdow"> <a href="/" className="btn-drop"> PRODUCTOS</a>
+                            <li className="dropdow"> <Link to="/" className="btn-drop"> PRODUCTOS</Link>
                                 <ul className="drop-container">
-                                    <li className="limpieza-drop" ><a href="/">LIMPIEZA</a></li>
-                                    <li className="reposteria-drop"><a href="/">REPOSTERIA</a></li>
-                                    <li className="gastronomia-drop" ><a href="/">GASTRONOMIA</a></li>
+                                    <li className="limpieza-drop" ><Link to="/">LIMPIEZA</Link></li>
+                                    <li className="reposteria-drop"><Link to="/">REPOSTERIA</Link></li>
+                                    <li className="gastronomia-drop" ><Link to="/">GASTRONOMIA</Link></li>
                                 </ul>
                             </li>
                             <li> <a href="/">CONTACTO</a>

@@ -1,24 +1,35 @@
 
 import './App.css';
 import ContenedorGrid  from './component/ContenedorGrid.js';
-import Ruteo from './component/Ruteo.js'
- import ItemListContainer from './component/ItemListContainer.js';
-import  ItemCount  from './component/ItemCount';
+import {BrowserRouter,Switch,Route} from 'react-router-dom';
+import NavBar from './component/NavBar.js';
+import ItemdetailContainer from './component/ItemDetailContainer.js';
+import ItemDetail from './component/ItemDetail.js';
+import ItemListContainer from './component/ItemListContainer.js';
+/*import  ItemCount  from './component/ItemCount';*/
 import ItemList from './component/ItemList.js';
-import Item from './component/Item.js'; 
-
 function App() {
   return (
     <div className="App">
+      <BrowserRouter>
       <ContenedorGrid >
-        <Ruteo/>
-        <ItemListContainer texto ="proximante catalogo.">
-          <ItemCount/>
-          <ItemList>
-            <Item/>
-          </ItemList>
+      <NavBar/>
+      <Switch>
+        <Route exact path="/" >
+          <ItemListContainer texto ="proximante catalogo.">
+          <ItemList/>
         </ItemListContainer> 
-      </ContenedorGrid>
+        </Route>
+        
+          <ItemdetailContainer  texto ="DETALLES.">
+            <Route exact path="/detalles/:id">
+          <ItemDetail/>
+          </Route>
+        </ItemdetailContainer>
+        
+      </Switch>
+     </ContenedorGrid>
+      </BrowserRouter>
     </div>
   );
 }
