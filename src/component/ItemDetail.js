@@ -1,12 +1,12 @@
-import React,{useEffect,useState} from 'react';
+import React,{useState} from 'react';
+
+import {useParams} from 'react-router-dom'
 import Inoxi from '../img/inoxi.jpg';
 import BarreHojas from '../img/barre-hojas.jpg';
 import Cuadriculada from '../img/cuadriculada.jpg';
 import Dorada from '../img/doradajpg.jpg';
 import Lana from '../img/lana.jpg';
 import Amarillo from '../img/amarillo.jpg';
-import {useParams} from 'react-router-dom'
-
 
 const data = [ {
     rutaimagen: Inoxi,
@@ -67,49 +67,64 @@ const data = [ {
         precio : 45,
         id : 6
     }  ]
-
-
-const promesadetail = () =>{
-    return  new Promise((resolve,reject) => {
-        setTimeout(() => {
+const ejeucutarpromesa = ()=>{
+    return  new Promise ((resolve,reject) =>{
+        setTimeout(()=>{
             if(data.length>0){
                 resolve(data);
-            } else{
-                reject("error al obtener los datos ");
+            }else{
+                reject("error al obtener los datos")
             }
-        },2000);
-    })
+            
+        },3000)
+        
+        })
 }
 
 
-const ItemDetail = () =>{
-    const [Elementodetail,setElementodetail] = useState([]);
-    const {id} = (useParams);
-        console.log(id)
-        
 
-useEffect(()=>{
-        promesadetail().then((Elementodetail) =>{
-            setElementodetail(Elementodetail);
-            console.log(Elementodetail);
-        }).catch((erroor)=>{
+const ItemDetail = () =>{
+
+    const [Elemento,setElemento] = useState([]);
+    ejeucutarpromesa().then ((id)=>{
+     
+        setElemento(Elemento)
+         
+    }).catch((erroor)=>{
         console.log("error")
+
     })
-},[])
+    const {id} = useParams()
+        console.log(id)
+      
+const [Numero, setNumero] = useState(0);
+
+const aumentar = () =>{
+    setNumero(Numero + 1);
+}
+const reducir = () =>{
+    setNumero(Numero - 1);
+    if (Numero < 0){
+    }
+}
 
 
     return(
         <div className="contenedorMain">  
         
         <div className="tamañoImagen">
-            <img src={"/"} alt=""/> </div>
+            <img src={Elemento.rutaimagen} alt="imagen"/> </div>
         
             <div className="descripcion">
-                <h1></h1>
-                <p></p>
+                <h1>{Elemento.titulo}</h1>
+                <p>algo mas </p>
                 <h4>precio:</h4>
-                <span className="cantidadProductos"> 0 </span>
-                <button className="btn-comprar">comprar</button>
+                <span className="cantidadProductos"> {Numero} </span>
+                <ul className="descripcion" >
+                        <li><button onClick ={aumentar} className="btn-card">sumar</button></li>
+                        <li><button onClick ={reducir}  className="btn-card" >restar</button></li>
+                        <li><button className="btn-card">agregar al carrito</button></li>
+                    </ul>
             </div>
         </div>
 

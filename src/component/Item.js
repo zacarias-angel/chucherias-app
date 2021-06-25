@@ -111,7 +111,7 @@ console.log("esta esta despues de la promesa")
                     <li>cantidad bulto {eLemento.bulto}</li>
                     <li>precio {eLemento.precio}</li>
                 </ul>
-                <Link to={`/datalles/${eLemento.id}`}>
+                <Link to={`/detalles/${eLemento.id}`}>
                 <button id="btncard "    className="btn-card">ver mas</button>
                 </Link>
             </div>    

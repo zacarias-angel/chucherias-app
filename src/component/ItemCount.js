@@ -3,13 +3,6 @@ import React,{useState} from 'react';
  const ItemCount = () => {
      
 const [Numero, setNumero] = useState(0);
-const [Activo, setActivo] = useState(true);
-
-const desactivado =() =>{
-    setActivo(!Activo)
-    
-} 
-
 
 
 const aumentar = () =>{
@@ -19,8 +12,6 @@ const aumentar = () =>{
 const reducir = () =>{
     setNumero(Numero - 1);
     if (Numero < 0){
-       desactivado()
-   
     }
 }
 
