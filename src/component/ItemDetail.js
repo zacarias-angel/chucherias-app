@@ -1,5 +1,4 @@
 import React,{useState} from 'react';
-
 import {useParams} from 'react-router-dom'
 import Inoxi from '../img/inoxi.jpg';
 import BarreHojas from '../img/barre-hojas.jpg';
@@ -8,7 +7,7 @@ import Dorada from '../img/doradajpg.jpg';
 import Lana from '../img/lana.jpg';
 import Amarillo from '../img/amarillo.jpg';
 
-const data = [ {
+ const data = [ {
     rutaimagen: Inoxi,
     titulo:" esp. acero",
     pack :24,
@@ -79,25 +78,25 @@ const ejeucutarpromesa = ()=>{
         },3000)
         
         })
-}
+} 
 
 
 
 const ItemDetail = () =>{
-
     const [Elemento,setElemento] = useState([]);
-    ejeucutarpromesa().then ((id)=>{
-     
-        setElemento(Elemento)
-         
+    ejeucutarpromesa().then (( data)=>{
+        setElemento (data);
+         console.log(Elemento);
+
     }).catch((erroor)=>{
         console.log("error")
-
-    })
+    });
     const {id} = useParams()
         console.log(id)
-      
+const resultado = data.filter((item) =>item.id == id)
+console.log(resultado)
 const [Numero, setNumero] = useState(0);
+
 
 const aumentar = () =>{
     setNumero(Numero + 1);
@@ -113,10 +112,10 @@ const reducir = () =>{
         <div className="contenedorMain">  
         
         <div className="tamañoImagen">
-            <img src={Elemento.rutaimagen} alt="imagen"/> </div>
+            <img src={resultado[0].rutaimagen} alt="imagen"/> </div>
         
             <div className="descripcion">
-                <h1>{Elemento.titulo}</h1>
+                <h1>{resultado[0].titulo}</h1>
                 <p>algo mas </p>
                 <h4>precio:</h4>
                 <span className="cantidadProductos"> {Numero} </span>

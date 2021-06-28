@@ -13,18 +13,17 @@ function App() {
       <BrowserRouter>
       <ContenedorGrid >
       <NavBar/>
-     
       <Switch>
         <Route exact path="/" >
           <ItemListContainer texto ="proximante catalogo.">
-          <ItemList/>
-        </ItemListContainer> 
+            <ItemList/>
+          </ItemListContainer> 
         </Route>
         <Route exact path="/detalles/:id">
-        <ItemdetailContainer texto ="DETALLES."/>
+          <ItemdetailContainer texto ="DETALLES."/>
         </Route>
       </Switch>
-     </ContenedorGrid>
+      </ContenedorGrid>
       </BrowserRouter>
     </div>
   );
