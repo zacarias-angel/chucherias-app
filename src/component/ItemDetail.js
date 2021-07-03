@@ -1,5 +1,6 @@
-import React,{useState} from 'react';
-import {useParams} from 'react-router-dom'
+import React,{useContext, useState,useEffect} from 'react';
+import {useParams} from 'react-router-dom';
+import {Addcontext} from '../context/Addcontext.js';
 import Inoxi from '../img/inoxi.jpg';
 import BarreHojas from '../img/barre-hojas.jpg';
 import Cuadriculada from '../img/cuadriculada.jpg';
@@ -83,19 +84,25 @@ const ejeucutarpromesa = ()=>{
 
 
 const ItemDetail = () =>{
-    const [Elemento,setElemento] = useState([]);
-    ejeucutarpromesa().then (( data)=>{
-        setElemento (data);
-         console.log(Elemento);
+    const [Numero, setNumero] = useState(0);
+    
+    const [hookcontext,setHookcontext] = useContext(Addcontext)
 
+    const {id} = useParams()
+        console.log(id)
+useEffect(()=>{
+    ejeucutarpromesa().then (( data)=>{
+        
+        
     }).catch((erroor)=>{
         console.log("error")
     });
-    const {id} = useParams()
-        console.log(id)
+}, [])
+
 const resultado = data.filter((item) =>item.id == id)
 console.log(resultado)
-const [Numero, setNumero] = useState(0);
+    
+
 
 
 const aumentar = () =>{
@@ -106,24 +113,38 @@ const reducir = () =>{
     if (Numero < 0){
     }
 }
+const agregarCarrito = resultado =>{
+   const existe = hookcontext.find((x)=>x.id===resultado.id);
+   if(existe){
+    setHookcontext(hookcontext.map((x)=> x.id === resultado.id? {...existe,Numero : existe.Numero+1 } : x))
+   } else{setHookcontext([...hookcontext, {...resultado , Numero : 1} ])
 
+}
+
+    
+    console.log(hookcontext)
+
+}
 
     return(
-        <div className="contenedorMain">  
-        
-        <div className="tamañoImagen">
-            <img src={resultado[0].rutaimagen} alt="imagen"/> </div>
-        
-            <div className="descripcion">
-                <h1>{resultado[0].titulo}</h1>
-                <p>algo mas </p>
-                <h4>precio:</h4>
-                <span className="cantidadProductos"> {Numero} </span>
-                <ul className="descripcion" >
-                        <li><button onClick ={aumentar} className="btn-card">sumar</button></li>
-                        <li><button onClick ={reducir}  className="btn-card" >restar</button></li>
-                        <li><button className="btn-card">agregar al carrito</button></li>
-                    </ul>
+        <div className="contenedorPadre">
+            <div className="contenedorMain">  
+            
+                <div className="tamañoImagen">
+                <img src={resultado[0].rutaimagen} alt="imagen"/> 
+                </div>
+            
+                <div className="descripcion">
+                    <h1>{resultado[0].titulo}</h1>
+                    <p>{resultado[0].descripcion} </p>
+                    <h4>{resultado[0].precio}</h4>
+                    <span className="cantidadProductos"> {Numero} </span>
+                    <ul className="descripcion">
+                            <li><button onClick ={aumentar} className="btn-card">sumar</button></li>;
+                            <li><button onClick ={reducir}  className="btn-card" >restar</button></li>;
+                            <li><button onClick ={()=>agregarCarrito(resultado[0])} className="btn-card">agregar al carrito</button></li>;
+                        </ul>
+                </div>
             </div>
         </div>
 

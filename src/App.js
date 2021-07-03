@@ -7,9 +7,11 @@ import ItemdetailContainer from './component/ItemDetailContainer.js';
 import ItemListContainer from './component/ItemListContainer.js';
 //import  ItemCount  from './component/ItemCount';
 import ItemList from './component/ItemList.js'; 
+import {AddProvider} from './context/Addcontext.js';
 function App() {
   return (
     <div className="App">
+      <AddProvider>
       <BrowserRouter>
       <ContenedorGrid >
       <NavBar/>
@@ -25,6 +27,7 @@ function App() {
       </Switch>
       </ContenedorGrid>
       </BrowserRouter>
+      </AddProvider>
     </div>
   );
 }
