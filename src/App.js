@@ -6,23 +6,26 @@ import NavBar from './component/NavBar.js';
 import ItemdetailContainer from './component/ItemDetailContainer.js';
 import ItemListContainer from './component/ItemListContainer.js';
 //import  ItemCount  from './component/ItemCount';
-import ItemList from './component/ItemList.js'; 
+import Cards from './component/Cards.js';
+
 import {AddProvider} from './context/Addcontext.js';
 function App() {
   return (
     <div className="App">
+      
       <AddProvider>
       <BrowserRouter>
       <ContenedorGrid >
       <NavBar/>
       <Switch>
         <Route exact path="/" >
-          <ItemListContainer texto ="proximante catalogo.">
-            <ItemList/>
-          </ItemListContainer> 
+          <ItemListContainer texto ="proximante catalogo."/>
         </Route>
         <Route exact path="/detalles/:id">
           <ItemdetailContainer texto ="DETALLES."/>
+        </Route>
+        <Route  exact path="/cars">
+         <Cards />
         </Route>
       </Switch>
       </ContenedorGrid>

@@ -1,4 +1,5 @@
 import React from 'react';
+import ItemList from './ItemList.js';
 const ItemListContainer = props => {
     
     const {texto , children} = props;
@@ -8,8 +9,8 @@ const ItemListContainer = props => {
             {texto}
         </p>
         {children}
-
-
+        <ItemList/>
+    
     </div>
     )
     

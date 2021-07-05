@@ -1,4 +1,4 @@
-import React,{useContext, useState,useEffect} from 'react';
+import React,{useContext,useEffect, useState} from 'react';
 import {useParams} from 'react-router-dom';
 import {Addcontext} from '../context/Addcontext.js';
 import Inoxi from '../img/inoxi.jpg';
@@ -84,8 +84,7 @@ const ejeucutarpromesa = ()=>{
 
 
 const ItemDetail = () =>{
-    const [Numero, setNumero] = useState(0);
-    
+    const [Numero, setNumero] = useState(0)
     const [hookcontext,setHookcontext] = useContext(Addcontext)
 
     const {id} = useParams()
@@ -101,30 +100,29 @@ useEffect(()=>{
 
 const resultado = data.filter((item) =>item.id == id)
 console.log(resultado)
-    
 
-
-
-const aumentar = () =>{
-    setNumero(Numero + 1);
-}
-const reducir = () =>{
-    setNumero(Numero - 1);
-    if (Numero < 0){
-    }
-}
 const agregarCarrito = resultado =>{
    const existe = hookcontext.find((x)=>x.id===resultado.id);
    if(existe){
     setHookcontext(hookcontext.map((x)=> x.id === resultado.id? {...existe,Numero : existe.Numero+1 } : x))
+    setNumero(Numero)
    } else{setHookcontext([...hookcontext, {...resultado , Numero : 1} ])
-
-}
-
-    
+   }
     console.log(hookcontext)
-
+    setNumero(Numero+1);;
 }
+const quitarcarrito = resultado =>{
+    const existe = hookcontext.find((x)=> x.id === resultado.id);
+    if (existe.Numero === 1) {
+        setHookcontext(hookcontext.filter((x) => x.id !== resultado.id));
+       
+
+
+    }else{ setHookcontext(hookcontext.map((x)=> x.id === resultado.id? {...existe,Numero : existe.Numero-1 } : x))
+   }
+ setNumero(Numero-1);
+}
+
 
     return(
         <div className="contenedorPadre">
@@ -138,10 +136,10 @@ const agregarCarrito = resultado =>{
                     <h1>{resultado[0].titulo}</h1>
                     <p>{resultado[0].descripcion} </p>
                     <h4>{resultado[0].precio}</h4>
-                    <span className="cantidadProductos"> {Numero} </span>
+                    <span className="cantidadProductos">{Numero}</span>
                     <ul className="descripcion">
-                            <li><button onClick ={aumentar} className="btn-card">sumar</button></li>;
-                            <li><button onClick ={reducir}  className="btn-card" >restar</button></li>;
+                            <li><button onClick ={()=>agregarCarrito(resultado[0])} className="btn-card">sumar</button></li>;
+                            <li><button onClick ={()=>quitarcarrito(resultado[0])}  className="btn-card" >restar</button></li>;
                             <li><button onClick ={()=>agregarCarrito(resultado[0])} className="btn-card">agregar al carrito</button></li>;
                         </ul>
                 </div>

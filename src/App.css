@@ -264,3 +264,10 @@ display: flex;
 .descripcion{
 padding: 10px;
 }
+
+
+
+
+.encarro{
+  display:flex;
+}
